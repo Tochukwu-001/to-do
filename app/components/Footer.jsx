@@ -1,5 +1,6 @@
 import React from 'react'
 <<<<<<< HEAD
+<<<<<<< HEAD
 import Link from 'next/link'
 
 const Footer = () => {
@@ -39,10 +40,15 @@ const Footer = () => {
         </ul>
     </footer>
 =======
+=======
+>>>>>>> 11833607e86f1cb4ae394f96024b9fdcab58bd0c
 
 const Footer = () => {
   return (
     <div>Footer</div>
+<<<<<<< HEAD
+>>>>>>> 11833607e86f1cb4ae394f96024b9fdcab58bd0c
+=======
 >>>>>>> 11833607e86f1cb4ae394f96024b9fdcab58bd0c
   )
 }
