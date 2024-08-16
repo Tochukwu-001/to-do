@@ -1,4 +1,5 @@
 import React from 'react'
+<<<<<<< HEAD
 import Link from 'next/link'
 
 const Footer = () => {
@@ -37,6 +38,12 @@ const Footer = () => {
           ))}
         </ul>
     </footer>
+=======
+
+const Footer = () => {
+  return (
+    <div>Footer</div>
+>>>>>>> 11833607e86f1cb4ae394f96024b9fdcab58bd0c
   )
 }
 
