@@ -7,16 +7,16 @@ const SigninIcons = () => {
     return (
         <main>
             <div className='mt-[5rem]'>
-                <h3 className='text-sm font-light text-center my-5'>Follow us on</h3>
+                <h3 className='  text-center my-5'>Follow us on</h3>
                 <div className='flex gap-10 justify-center items-center'>
                     <Link href="https://www.instagram.com">
-                        <FaInstagram className='text-4xl text-[#C13584]' />
+                        <FaInstagram className='text-5xl text-[#C13584] hover:shadow-lg' />
                     </Link>
                     <Link href="https://www.x.com">
-                        <FaSquareXTwitter className='text-4xl' />
+                        <FaSquareXTwitter className='text-5xl hover:shadow-lg' />
                     </Link>
                     <Link href="https://www.pinterest.com">
-                        <FaPinterest className='text-4xl text-[#E60023]' />
+                        <FaPinterest className='text-5xl text-[#E60023] hover:shadow-lg' />
                     </Link>
                 </div>
             </div>

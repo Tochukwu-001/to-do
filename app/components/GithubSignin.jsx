@@ -1,21 +1,27 @@
 "use client"
-import React from 'react'
+import React, {useState} from 'react'
 import { FaGithub } from 'react-icons/fa'
 import { signIn } from 'next-auth/react'
+import { BiLoaderCircle } from "react-icons/bi";
 
 const GithubSignin = () => {
 
+  const [processing, setProcessing] = useState(false)
   const handleSignIn = () => {
     signIn('github', {callbackUrl: '/'})
+    setProcessing(true)
   }
 
   return (
     <button
+      disabled={processing}
       onClick={handleSignIn}
-      className='rounded-full border py-2 px-3 w-full text-lg flex items-center justify-center'
+      className='rounded-full border py-2 px-3 w-full text-lg flex items-center justify-center hover:bg-black hover:text-white'
     >
-      <FaGithub className='text-2xl' />
-      <span className='mx-auto'>Continue with Github</span>
+      <FaGithub className='text-3xl' />
+      <span className='mx-auto text-2xl'>Continue with Github</span>
+
+      {processing && <BiLoaderCircle className='animate-spin text-2xl'/>}
     </button>
   )
 }
