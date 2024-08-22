@@ -1,11 +1,5 @@
-<<<<<<< HEAD
-"use client"
-import React from 'react'
-import Link from 'next/link'
-=======
 import Link from 'next/link'
 import React from 'react'
->>>>>>> 11833607e86f1cb4ae394f96024b9fdcab58bd0c
 
 const page = () => {
   return (
@@ -24,11 +18,7 @@ const page = () => {
             <button
              className='border p-3 max-lg:p-2 text-3xl max-lg:text-lg rounded-lg hover:text-black hover:bg-white transition-all max-lg:w-full'
             >
-<<<<<<< HEAD
-              <Link href={'#'}>Get Started</Link>
-=======
               <Link href={'/signin'}>Get Started</Link>
->>>>>>> 11833607e86f1cb4ae394f96024b9fdcab58bd0c
             </button>
           </div>
         </div>

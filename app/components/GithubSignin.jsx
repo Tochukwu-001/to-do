@@ -1,20 +1,29 @@
-// "use client"
-// import React from 'react'
-// import { FaGithub } from "react-icons/fa";
-// const GithubSignin = () => {
+"use client";
+import React, { useState } from "react";
+import { FaGithub } from "react-icons/fa";
+import { signIn } from "next-auth/react";
+// import SignIn from '../(guest)/signin/page';
+import { RiLoader4Line } from "react-icons/ri";
 
-//     const handleSignin =()=>{
+const GithubSignin = () => {
+  const [processing, setProcessing] = useState(false);
 
-//     }
-//   return (
-//     <button onClick={handleSignin}
-//      className='flex rounded-full py-3 border items-center justify-center w-full'
-//     >
-        
-//         <FaGithub className='text-2xl'/>
-//         <span className='text-3xl'>Continue with Github</span>
-//     </button>
-//   )
-// }
+  const handleSignIn = () => {
+    signIn("github", { callbackUrl: "/" });
+    setProcessing(true);
+  };
 
-// export default GithubSignin
+  return (
+    <button
+      disabled={processing}
+      onClick={handleSignIn}
+      className="rounded-full border py-2 px-3 w-full text-lg flex items-center justify-center"
+    >
+      <FaGithub className="text-2xl" />
+      <span className="mx-auto">Continue with Github</span>
+      {processing && <RiLoader4Line className="text-2xl animate-spin" />}
+    </button>
+  );
+};
+
+export default GithubSignin;

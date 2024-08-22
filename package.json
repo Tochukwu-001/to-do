@@ -9,11 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@auth/firebase-adapter": "^2.4.2",
+    "firebase-admin": "^11.11.1",
     "next": "14.2.5",
-<<<<<<< HEAD
     "next-auth": "^4.24.7",
-=======
->>>>>>> 11833607e86f1cb4ae394f96024b9fdcab58bd0c
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^5.2.1"
