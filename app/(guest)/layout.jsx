@@ -3,13 +3,13 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import AuthProvider from '../components/AuthProvider'
 
-const layout = ({children}) => {
+const layout = ({ children }) => {
   return (
     <main>
       <AuthProvider>
-        <Navbar/>
+        <Navbar />
         {children}
-        <Footer/>
+        <Footer />
       </AuthProvider>
     </main>
   )
