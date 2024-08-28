@@ -1,9 +1,9 @@
 "use client";
 import React, { useState } from "react";
 import { FaGithub } from "react-icons/fa";
-// import { signIn } from "next-auth/react";
-import SignIn from '../(guest)/signin/page';
-import { RiLoader4Line } from "react-icons/ri";
+import { signIn } from "next-auth/react";
+// import SignIn from '../(guest)/signin/page';
+import { RiLoader3Line } from "react-icons/ri";
 
 const GithubSignin = () => {
   const [processing, setProcessing] = useState(false);
@@ -22,7 +22,7 @@ const GithubSignin = () => {
       <FaGithub className='text-2xl' />
       <span className='mx-auto'>Continue with Github</span>
 
-      {processing && <LuLoader2 className='animate-spin text-2xl'/>}
+      {processing && <RiLoader3Line className='animate-spin text-2xl'/>}
     </button>
   );
 };
