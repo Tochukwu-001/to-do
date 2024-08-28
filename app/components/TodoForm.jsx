@@ -1,34 +1,15 @@
 "use client"
 import { ErrorMessage, Field, Form, Formik } from 'formik'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaPlus } from "react-icons/fa6";
 import * as Yup from 'yup'
-import { collection, addDoc, getDocs, QuerySnapshot } from 'firebase/firestore'
+import { collection, addDoc, getDocs } from 'firebase/firestore'
 import { db } from '@/lib/firebase';
-import { FaTrash } from "react-icons/fa";
-
 
 const TodoForm = () => {
-  const [todos, setTodos]=  useState([])
-  useEffect(()=>{
-    // function to fetch todos
-    const fecthTodos = async()=>{
-      try{
-          const querysnapshot = await getDocs(collection (db, 'todos'))
-          const todosData = querysnapshot.docs.map(doc =>({
-            id: doc.id,
-            ...doc.data()
-          }))
-      } catch(error){
-        console.error("Error fetching data:", error);
-        
-      }
-      
-      }
-    
-      }), []
   const initVal = {
-    title: ''
+    title: '',
+    task: ''
   }
 
   const formValidation = Yup.object().shape({
@@ -41,9 +22,9 @@ const TodoForm = () => {
     
     // create a document to be stored
     const info = {
-      title: values.title
+      title: values.title,
+      task: values.task
     }
-
 
     // add this document to the database
     const docRef = collection(db, "todos")
@@ -71,11 +52,11 @@ const TodoForm = () => {
               component={'p'}
               className='text-red-500 text-sm'
             />
-            {/* <Field
+            <Field
               name='task'
               placeholder='Enter a task...'
               className="w-full border-none outline-none rounded-md px-3 py-2  text-2xl"
-            /> */}
+            />
 
             <button
               type='submit'
@@ -90,21 +71,19 @@ const TodoForm = () => {
       <div>
         <ul className='w-full'>
           {
-            todos.map((todo)=>(
+            todos.map((todo) => (
               <li key={todo.id} className='w-[90%] mx-auto flex justify-between p-3 m-3 text-lg border-b border-b-gray-300 rounded-lg'>
                 <input type="checkbox" />
                 {todo.title}
                 <button className='hover:text-red-600 hover:text-2xl transition-all'>
-                  <FaTrash/>
+                  <FaTrashAlt />
                 </button>
               </li>
             ))
           }
-
         </ul>
-      <p className='flex justify-center'>You have 2 task</p>
       </div>
-
+      <p className='text-center text-sm p-10'>You have 2 tasks</p>
     </main>
   )
 }
