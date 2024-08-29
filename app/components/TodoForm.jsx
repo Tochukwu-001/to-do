@@ -61,13 +61,13 @@ const TodoForm = () => {
       setTodos(todosData)
 
     } catch (error) {
-        console.error("Error adding task: ", error)
+      console.error("Error adding task: ", error)
     }
 
   }
 
   return (
-    <main className='h-dvh bg-blue-50'>
+    <main className='h-dvh bg-blue-50 overflow-y-scroll'>
       <Formik
         initialValues={initVal}
         validationSchema={formValidation}
@@ -112,7 +112,7 @@ const TodoForm = () => {
           }
         </ul>
       </div>
-      <p className='text-center text-sm p-10'>You have 2 tasks</p>
+      <p className='text-center text-sm p-10'>You have { todos.length} tasks</p>
     </main>
   )
 }
