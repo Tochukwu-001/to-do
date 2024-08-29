@@ -20,7 +20,6 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
 const Navbar = () => {
   const navLists = [
-
     {
       id: 1,
       href: "/",
