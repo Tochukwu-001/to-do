@@ -1,12 +1,17 @@
+"use client"
 import Link from 'next/link'
 import React from 'react'
 
+
+
 const page = () => {
+
   return (
-    <main className='h-dvh bg-[url(/bg.png)] bg-cover bg-center'>
+    <main className='h-dvh bg-[url(/bg.png)] bg-cover bg-center max-lg:h-dvh'>
       <div className='h-dvh bg-black/70'>
         <div className='flex flex-col gap-[8rem] items-center justify-center text-white h-dvh w-[50rem] max-lg:w-full mx-auto max-lg:p-5'>
-          <p className='text-2xl text-center'>
+       
+          <p className='text-2xl text-center max-md:text-sm'>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero vel dignissimos doloremque sit necessitatibus ratione et doloribus cumque vitae iusto, reprehenderit aspernatur in itaque saepe quam blanditiis voluptatibus similique id non mollitia ducimus repellendus! Vitae fugit ullam inventore iure optio.
           </p>
           <div className='flex gap-[8rem] max-lg:gap-5 max-lg:flex-col '>
@@ -26,5 +31,6 @@ const page = () => {
     </main>
   )
 }
+
 
 export default page
