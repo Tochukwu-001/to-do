@@ -16,7 +16,7 @@ const GithubSignin = () => {
     <button
       disabled={processing}
       onClick={handleSignIn}
-      className='rounded-full border py-2 px-3 w-full text-lg flex items-center justify-center hover:bg-black hover:text-white'
+      className='rounded-full border py-3 px-3 w-full text-lg flex items-center justify-center hover:bg-black hover:text-white'
     >
       <FaGithub className='text-3xl' />
       <span className='mx-auto text-2xl'>Continue with Github</span>

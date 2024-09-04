@@ -1,6 +1,7 @@
 import { FirestoreAdapter } from "@auth/firebase-adapter"
 import { cert } from "firebase-admin/app"
 import GitHubProvider from "next-auth/providers/github"
+import GoogleProvider from "next-auth/providers/google";
 
 export const authOptions ={
     providers: [
@@ -8,6 +9,11 @@ export const authOptions ={
             clientId: process.env.GITHUB_CLIENT_ID,
             clientSecret: process.env.GITHUB_CLIENT_SECRET
         }),
+  
+        GoogleProvider({
+          clientId: process.env.GOOGLE_CLIENT_ID,
+          clientSecret: process.env.GOOGLE_CLIENT_SECRET
+        })
     ],
 
     adapter: FirestoreAdapter({
@@ -21,4 +27,6 @@ export const authOptions ={
     pages: {
         signIn : '/signin'
     }
+
+   
 }
