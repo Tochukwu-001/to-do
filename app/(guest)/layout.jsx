@@ -10,7 +10,7 @@ const layout = ({ children }) => {
       <AuthProvider>
         <Navbar />
         {children}
-        <Footer />
+        {/* <Footer /> */}
       </AuthProvider>
     </main>
   )

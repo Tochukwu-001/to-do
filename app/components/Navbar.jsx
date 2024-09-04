@@ -6,6 +6,7 @@ import { MdOutlineMenu } from "react-icons/md";
 import { IoMdClose } from "react-icons/io";
 import { signOut, useSession } from 'next-auth/react';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { LuLoader2 } from "react-icons/lu";
 
 import {
   DropdownMenu,
@@ -18,6 +19,9 @@ import {
 
 
 const Navbar = () => {
+  
+  const { data: session, status } = useSession()
+  const [navOpen, setNavOpen] = useState(false)
   const navLists = [
     {
       id: 1,
@@ -31,16 +35,25 @@ const Navbar = () => {
     },
     {
       id: 3,
-      href: "#",
+      href: "/contact",
       title: "Contact"
-    }
+    },
+    
   ]
-  let x = 3
-  const [navOpen, setNavOpen] = useState(false)
+  if(status=='authenticated'){
+    navLists.push({
+      id: 4,
+      href: "/todo",
+      title: "To-Do", 
+    })
+  }
+  // let x = 3
+  // const [navOpen, setNavOpen] = useState(false)
 
-  const { data: session, status } = useSession()
+  // const { data: session, status } = useSession()
 
-  console.log(session, status);
+  // console.log(session, status);
+  
 
   // console.log(session.user.name);
 
@@ -63,11 +76,13 @@ const Navbar = () => {
       </ul>
 
       {
-        status == 'loading' ? ('...') :
+        status == 'loading' ? (<LuLoader2 className='animate-spin text-2xl text-blue-600'/>) :
           status == 'unauthenticated' ? (
             <Link href={'/signin'} className='font-semibold hover:text-blue-600 hover:border-b hover:border-b-blue-600 ml-10'>Sign In</Link>
           ) : (
-            <DropdownMenu className='mx-10'>
+            
+            <div className='px-4'>
+              <DropdownMenu className='mx-10'>
               <DropdownMenuTrigger className='outline-none'>
                 <Avatar>
                   <AvatarImage src={session.user.image} />
@@ -85,6 +100,7 @@ const Navbar = () => {
                 <DropdownMenuItem onClick={() => signOut({ callbackUrl: '/' })}>Sign Out</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
+            </div>
 
           )
       }
