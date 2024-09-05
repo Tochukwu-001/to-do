@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
+import Testimonials from '../components/Testimonials'
 
 const page = () => {
   return (
@@ -23,6 +24,8 @@ const page = () => {
           </div>
         </div>
       </div>
+
+      <Testimonials/>
     </main>
   )
 }

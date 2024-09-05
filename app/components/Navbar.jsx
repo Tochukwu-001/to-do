@@ -31,7 +31,7 @@ const Navbar = () => {
     },
     {
       id: 3,
-      href: "#",
+      href: "/contact",
       title: "Contact"
     }
   ]

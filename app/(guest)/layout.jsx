@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import AuthProvider from '../components/AuthProvider'
+import { Toaster } from '@/components/ui/toaster'
 
 const layout = ({ children }) => {
   return (
@@ -9,7 +10,8 @@ const layout = ({ children }) => {
       <AuthProvider>
         <Navbar />
         {children}
-        <Footer />
+        {/* <Footer /> */}
+        <Toaster/>
       </AuthProvider>
     </main>
   )
