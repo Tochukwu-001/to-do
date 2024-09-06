@@ -8,6 +8,8 @@ import { db } from '@/lib/firebase';
 import { FaTrashAlt } from "react-icons/fa";
 import { useToast } from '@/components/ui/use-toast';
 import { LuLoader2 } from "react-icons/lu";
+import { FaRegSave } from "react-icons/fa";
+import { CiEdit } from "react-icons/ci";
 
 const TodoForm = () => {
 
@@ -134,6 +136,10 @@ const TodoForm = () => {
 
       setEditingTask(null)
 
+      toast({
+        description: "Your task has been updated",
+      })
+
     } catch (error) {
       console.error("Error updating task: ", error)
     }
@@ -204,19 +210,19 @@ const TodoForm = () => {
                       <button
                         onClick={() => handleUpdateTask(todo.id)}
                       >
-                        save
+                        <FaRegSave className='text-2xl font-bold text-blue-600'/>
                       </button>
                     ) : (
                       <button
                         onClick={() => setEditingTask(todo)}
                       >
-                        edit
+                        <CiEdit className='text-2xl font-bold text-blue-600'/>
                       </button>
                     )
                   }
                   <button
                     onClick={() => handleDelete(todo.id)}
-                    className='w-12 '>
+                    className='w-12 flex items-center justify-center'>
                     <FaTrashAlt className='hover:text-red-600 hover:text-2xl transition-all' />
                   </button>
                 </div>
